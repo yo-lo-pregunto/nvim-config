@@ -30,7 +30,14 @@ gitsigns.setup {
     current_line_blame_formatter = '<author>, <author_time:%Y-%m-%d> - <summary>',
     sign_priority = 6,
     update_debounce = 100,
-    status_formatter = nil, -- Use default
+    status_formatter = function(status)
+          local added, changed, removed = status.added, status.changed, status.removed or 0
+          local status_txt = {}
+          if added   and added   >= 0 then table.insert(status_txt, string.format("[+%02d", added)) end
+          if changed and changed >= 0 then table.insert(status_txt, string.format("~%02d", changed)) end
+          if removed and removed >= 0 then table.insert(status_txt, string.format("-%02d]", removed)) end
+          return table.concat(status_txt, ' ')
+        end,
     max_file_length = 40000, -- Disable if file is longer than this (in lines)
     preview_config = {
         -- Options passed to nvim_open_win
@@ -44,3 +51,19 @@ gitsigns.setup {
         enable = false
     },
 }
+
+-- Status Line
+vim.cmd("set statusline=")
+-- vim.cmd("set statusline+=%#Visual#")
+vim.cmd("set statusline+=%#Todo#")
+vim.cmd("set statusline+=%{get(b:,'gitsigns_status','')}\\ ")
+vim.cmd("set statusline+=%#Pmenu#[%f]\\ ")
+vim.cmd("set statusline+=%=")
+vim.cmd("set statusline+=%#Todo#%{&modified?\'Modified\':\'\'}")
+vim.cmd("set statusline+=%= ") -- Right side setting
+vim.cmd("set statusline+=%#Pmenu#")
+-- vim.cmd("set statusline+=%#Visual#")
+vim.cmd("set statusline+=\\ %{&fileencoding?&fileencoding:&encoding}\\ ") -- encoding type
+vim.cmd("set statusline+=%l")
+vim.cmd("set statusline+=/%L\\ %c\\ ") -- Line and columns
+vim.cmd("set statusline+=%#Todo#%{strftime('%H:%M')}") -- Time

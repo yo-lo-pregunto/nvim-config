@@ -100,12 +100,9 @@ return packer.startup(function(use)
     use ({ "junegunn/fzf.vim" })
 
 	-- Git
-    use {
+    use({
         'lewis6991/gitsigns.nvim',
-        config = function()
-            require('gitsigns').setup()
-        end
-    }
+    })
 
     -- Themes
     use("jacoborus/tender.vim")         -- tender colorscheme
