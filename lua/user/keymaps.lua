@@ -68,3 +68,22 @@ keymap("t", "<A-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<A-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<A-l>", "<C-\\><C-N><C-w>l", term_opts)
 
+-- Plugins
+keymap("n", "<leader>b", ":Buffers<cr>", opts)          -- fzf  search buffers
+keymap("n", "<leader>c", ":bd<cr>", opts)               -- vim  close buffer
+keymap("n", "<leader>gs", ":Gitsigns stage_hunk<cr>", opts)                 -- git  stage hunk
+keymap("n", "<leader>gr", ":Gitsigns reset_hunk<cr>", opts)                 -- git  reset hunk
+keymap("n", "<leader>gS", ":Gitsigns stage_buffer<cr>", opts)               -- git  stage buffer
+keymap("n", "<leader>gR", ":Gitsigns reset_buffer<cr>", opts)               -- git  reset buffer
+keymap("n", "<leader>gu", ":Gitsigns undo_stage_hunk<cr>", opts)            -- git  undo hunk
+keymap("n", "<leader>gp", ":Gitsigns preview_hunk<cr>", opts)               -- git  preview hunk
+keymap("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<cr>", opts)  -- git  toggle blame
+keymap("n", "<leader>gj", ":Gitsigns next_hunk<cr>", opts)                  -- git  next hunk
+keymap("n", "<leader>gk", ":Gitsigns prev_hunk<cr>", opts)                  -- git  prev hunk
+keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)   -- exp  open file explorer
+keymap("n", "<leader>f", ":Files<cr>", opts)            -- fzf  search files
+keymap("n", "<leader>j", ":BLines<cr>", opts)           -- fzf  search line in buffer
+keymap("n", "<leader>q", ":qa<cr>", opts)               -- vim  quit all
+keymap("n", "<leader>s", ":Rg<cr>", opts)               -- fzf  search word in project
+keymap("n", "<leader>t", ":FloatermToggle<cr>", opts)   -- term open terminal
+keymap("n", "<leader>w", ":w<cr>", opts)                -- vim  save buffer
