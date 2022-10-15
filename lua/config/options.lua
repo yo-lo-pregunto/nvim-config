@@ -1,11 +1,11 @@
 local options = {
-    backup = false,             --create a backup file
-    clipboard = "unnamedplus",	--allows neovim to access the system clipboard
-    cmdheight = 2,              --more space in the nvim command line for displaying messages
+    backup = false,             -- create a backup file
+    clipboard = "unnamedplus",	-- allows neovim to access the system clipboard
+    cmdheight = 2,              -- more space in the nvim command line for displaying messages
     fileencoding = "utf-8",
-    hlsearch = true,	        -- highlight all amtches on previous search patterm
+    hlsearch = false,	        -- highlight all matches on previous search patterm
     ignorecase = true,	        -- ignore case in search patterns
-    mouse = "a",                --allow the mouse to be used in nvim
+    mouse = "a",                -- allow the mouse to be used in nvim
     smartcase = true,           -- smart case
     splitbelow = true,	        -- horizontal splits go to below window
     splitright = true,	        -- vertical splits go to right window
@@ -19,15 +19,15 @@ local options = {
     shiftround = true, 	        -- use multiples of shiftwidth when indent
     cursorline = true,	        -- highlight the current line
     number = true,		        -- set numbered lines
-    relativenumber = false,     -- set relative number
+    relativenumber = true,      -- set relative number
     signcolumn = "yes",         -- always show column numbers
     wrap = false,               -- display lines as one long line
     guifont = "monospace:h17",  -- the font used in graphical nvim
-    autoindent = true           -- audoindent
+    autoindent = true,          -- audoindent
+    hidden = true,
+    scrolloff = 8
 }
 
 for k, v in pairs(options) do
 	vim.opt[k] = v
 end
-
-

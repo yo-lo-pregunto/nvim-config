@@ -1,3 +1,4 @@
+require("config.autopairs")
 require("config.cmp")
 require("config.colorscheme")
 require("config.floaterm")
