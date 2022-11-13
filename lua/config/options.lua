@@ -3,6 +3,7 @@ local options = {
     clipboard = "unnamedplus",	-- allows neovim to access the system clipboard
     cmdheight = 2,              -- more space in the nvim command line for displaying messages
     fileencoding = "utf-8",
+    showmode = false,           -- Disable show mode on the bottom
     hlsearch = false,	        -- highlight all matches on previous search patterm
     ignorecase = true,	        -- ignore case in search patterns
     mouse = "a",                -- allow the mouse to be used in nvim
@@ -25,7 +26,9 @@ local options = {
     guifont = "monospace:h17",  -- the font used in graphical nvim
     autoindent = true,          -- audoindent
     hidden = true,
-    scrolloff = 8
+    scrolloff = 8,
+    autoread = true,
+    guicursor = "n-v-c-i:block"
 }
 
 for k, v in pairs(options) do
