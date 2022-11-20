@@ -52,6 +52,7 @@ return packer.startup(function(use)
     use("EdenEast/nightfox.nvim")       -- nightfox colorscheme
     use('bluz71/vim-moonfly-colors')    -- moonfly colorscheme
     use {'shaunsingh/oxocarbon.nvim', run = './install.sh'}
+    use { "catppuccin/nvim", as = "catppuccin" }
 
 	-- cmp plugins
 	use({ "hrsh7th/nvim-cmp"}) -- The completion plugin

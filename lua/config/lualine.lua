@@ -47,7 +47,7 @@ line.setup {
         lualine_b = { {'diff', source = diff_source} },
         lualine_c = { {'filename', path = 1} },
         lualine_x = {'encoding', 'fileformat', 'filetype'},
-        lualine_y = {'progress'},
+        lualine_y = {'location'},
         lualine_z = {local_time}
     },
     inactive_sections = {
@@ -59,7 +59,7 @@ line.setup {
         lualine_z = {}
     },
     tabline = {
-        lualine_a = { { 'buffers', symbols = { modified = " *" }, } },
+        lualine_a = { {'buffers', mode = 4, symbols = {modified = ' ', alternate_file = ''} }, },
         lualine_b = {},
         lualine_c = {},
         lualine_x = {'branch'},
