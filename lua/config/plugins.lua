@@ -44,7 +44,7 @@ return packer.startup(function(use)
 
 	use("wbthomason/packer.nvim")   -- Have packer manage itself
 	use({ "windwp/nvim-autopairs"}) -- Autopairs, integrates with both cmp and treesitter
-	-- use({ "nvim-lua/plenary.nvim", commit = "968a4b9afec0c633bc369662e78f8c5db0eba249" }) -- Useful lua functions used by lots of plugins
+	use({ "nvim-lua/plenary.nvim"}) -- Useful lua functions used by lots of plugins
 	-- use({ "lewis6991/impatient.nvim", commit = "969f2c5c90457612c09cf2a13fee1adaa986d350" })
 
 	-- Colorschemes
@@ -67,9 +67,13 @@ return packer.startup(function(use)
 	use({ "rafamadriz/friendly-snippets" }) -- a bunch of snippets to use
 
 	-- LSP
-	use({ "neovim/nvim-lspconfig" }) -- enable LSP
-	use({ "williamboman/nvim-lsp-installer" }) -- simple to use language server installer
+    use {
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+        "neovim/nvim-lspconfig",
+    }
 	-- use({ "jose-elias-alvarez/null-ls.nvim", commit = "ff40739e5be6581899b43385997e39eecdbf9465" }) -- for formatters and linters
+    use { "RRethy/vim-illuminate"}
 
 	-- Treesitter
     use {
@@ -103,6 +107,9 @@ return packer.startup(function(use)
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
+
+    -- which key
+    use { "folke/which-key.nvim", }
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

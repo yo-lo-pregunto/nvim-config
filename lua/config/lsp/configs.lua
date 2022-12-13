@@ -1,11 +1,18 @@
-local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
+local status_ok, mason = pcall(require, "mason")
 if not status_ok then
 	return
 end
 
+local status, lsp_installer = pcall(require, "mason-lspconfig")
+if not status then
+	return
+end
+
+mason.setup()
+
 local lspconfig = require("lspconfig")
 
-local servers = { "sumneko_lua", "ccls", "pyright", "rust_analyzer" }
+local servers = { "sumneko_lua", "clangd", "pyright", "rust_analyzer", "bashls" }
 
 lsp_installer.setup({
 	ensure_installed = servers,

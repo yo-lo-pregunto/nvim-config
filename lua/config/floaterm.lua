@@ -6,4 +6,3 @@ vim.g.floaterm_autohide = 1
 vim.g.floaterm_position = 'botright'
 vim.g.floaterm_opener = 'split'
 vim.g.floaterm_autoinsert = false
-
