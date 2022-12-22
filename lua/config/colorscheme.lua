@@ -1,12 +1,12 @@
-local colorscheme = "catppuccin-macchiato"
+local colorscheme = "carbonfox"
 local default = "darkblue"
 
-local colors_path = vim.o.rtp .. ",/home/yo-lo-pregunto/.local/share/nvim/site/pack/packer/start/*"
+local colors_path = vim.o.rtp .. ",$HOME/.local/share/nvim/site/pack/packer/start/*"
 local ext = {"colors/*.vim", "colors/*.lua"}
 local colors = {}
 
 local function get_color()
-    local b 
+    local b
     for _, t in pairs(colors) do
         for _, c in pairs(t) do
             b = string.match(c, "^.+/(.+)")
@@ -26,11 +26,14 @@ end
 
 local color = get_color()
 
-if string.find(color, "catppuccin") then
-    local ok, _ = pcall(require,"config.colors.catppuccin")
-    if not ok then
-        print('no se pudo cargar el archivo')
-        print('no se pudo cargar el archivo')
+local base_theme = {'catppuccin', 'fox'}
+
+for _, theme in pairs(base_theme) do
+    if string.find(color,theme) then
+        local ok, _ = pcall(require,"config.colors."..theme)
+        if not ok then
+            print('There is not a base theme for ' .. color .. ' using defaults')
+        end
     end
 end
 pcall(vim.cmd, "colorscheme " .. color)

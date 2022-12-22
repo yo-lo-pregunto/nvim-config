@@ -52,7 +52,7 @@ local setup = {
         scroll_up = '<c-u>', -- binding to scroll up inside the popup
     },
     window = {
-        border = "none", -- none, single, double, shadow
+        border = "shadow", -- none, single, double, shadow
         position = "bottom", -- bottom, top
         margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
         padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
@@ -119,15 +119,15 @@ local mappings = {
     ['f'] = { "<cmd>lua vim.lsp.buf.format({async = true})<cr>", "Format" },
     ['j'] = {
         name = 'Next',
-        b = { "<cmd>bnext<cr>", "Buffer" },
         d = { vim.diagnostic.goto_next, "Diagnostic" },
+        f = { "<cmd>bnext<cr>", "File" },
         h = { "<cmd>lua require 'gitsigns'.next_hunk({navigation_message = false})<cr>", "Hunk" },
         t = { "<cmd>FloatermNext<cr>", "Terminal" },
     },
     ['k'] = {
         name = 'Previous',
-        b = { "<cmd>bprevious<cr>", "Buffer" },
         d = { vim.diagnostic.goto_prev, "Diagnostic" },
+        b = { "<cmd>bprevious<cr>", "File" },
         h = { "<cmd>lua require 'gitsigns'.prev_hunk({navigation_message = false})<cr>", "Hunk" },
         t = { "<cmd>FloatermPrev<cr>", "Terminal" },
     },

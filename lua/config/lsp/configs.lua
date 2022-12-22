@@ -12,7 +12,7 @@ mason.setup()
 
 local lspconfig = require("lspconfig")
 
-local servers = { "sumneko_lua", "clangd", "pyright", "rust_analyzer", "bashls" }
+local servers = { "sumneko_lua", "clangd", "pyright", "rust_analyzer", "bashls", "marksman", "jsonls" }
 
 lsp_installer.setup({
 	ensure_installed = servers,

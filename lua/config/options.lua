@@ -5,6 +5,7 @@ local options = {
     fileencoding = "utf-8",
     showmode = false,           -- Disable show mode on the bottom
     hlsearch = false,	        -- highlight all matches on previous search patterm
+    incsearch = true,           -- Search while typing
     ignorecase = true,	        -- ignore case in search patterns
     mouse = "a",                -- allow the mouse to be used in nvim
     smartcase = true,           -- smart case
@@ -28,7 +29,8 @@ local options = {
     hidden = true,
     scrolloff = 8,
     autoread = true,
-    guicursor = "n-v-c-i:block"
+    guicursor = "n-v-c-i:block",
+    colorcolumn = "80"
 }
 
 for k, v in pairs(options) do
