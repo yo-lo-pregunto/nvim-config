@@ -139,11 +139,13 @@ local mappings = {
     },
     ['s'] = {
         name = 'Search',
-        b = { "<cmd>Buffers<cr>", "Buffer" },
-        c = { "<cmd>Colors<cr>", "ColorScheme" },
-        f = { "<cmd>Files<cr>", "Files" },
-        t = { "<cmd>Tags<cr>", "Tags" },
-        w = { "<cmd>Rg<cr>", "Word" }
+        b = { "<cmd>Telescope buffers<cr>", "Buffer" },
+        c = { "<cmd>Telescope colorscheme<cr>", "ColorScheme" },
+        f = { "<cmd>Telescope find_files<cr>", "Files" },
+        g = { "<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input('Grep > ') })<cr>", "Rg Search" },
+        h = { "<cmd>Telescope help_tags<cr>", "Help"},
+        t = { "<cmd>Telescope tags<cr>", "Tags" },
+        w = { "<cmd>lua require'telescope.builtin'.grep_string(require'telescope.themes'.get_cursor({layout_config={width=0.6, height=0.3, preview_width=0.7}}))<cr>", "Word"}
     },
     ['t'] = { "<cmd>FloatermToggle<cr>", "Toggle Terminal" },
     ['u'] = {

@@ -47,6 +47,9 @@ return packer.startup(function(use)
 	use({ "nvim-lua/plenary.nvim"}) -- Useful lua functions used by lots of plugins
 	-- use({ "lewis6991/impatient.nvim", commit = "969f2c5c90457612c09cf2a13fee1adaa986d350" })
 
+    -- Telescope
+    use ({ 'nvim-telescope/telescope.nvim', branch = '0.1.x' })
+
 	-- Colorschemes
     use("jacoborus/tender.vim")         -- tender colorscheme
     use("EdenEast/nightfox.nvim")       -- nightfox colorscheme
@@ -92,10 +95,6 @@ return packer.startup(function(use)
 
     -- Float terminal
     use ('voldikss/vim-floaterm')
-
-    -- FZF
-    use ({ "junegunn/fzf" })
-    use ({ "junegunn/fzf.vim" })
 
 	-- Git
     use({
