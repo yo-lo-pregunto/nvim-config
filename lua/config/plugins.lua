@@ -54,7 +54,7 @@ return packer.startup(function(use)
     use("jacoborus/tender.vim")         -- tender colorscheme
     use("EdenEast/nightfox.nvim")       -- nightfox colorscheme
     use('bluz71/vim-moonfly-colors')    -- moonfly colorscheme
-    use {'shaunsingh/oxocarbon.nvim', run = './install.sh'}
+    use {'nyoom-engineering/oxocarbon.nvim'}
     use { "catppuccin/nvim", as = "catppuccin" }
 
 	-- cmp plugins
@@ -109,6 +109,9 @@ return packer.startup(function(use)
 
     -- which key
     use { "folke/which-key.nvim", }
+
+    -- Tmux
+    use { 'christoomey/vim-tmux-navigator' }
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
