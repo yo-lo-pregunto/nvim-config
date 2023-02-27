@@ -71,7 +71,7 @@ cmp.setup({
     		['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
 
 		-- scroll up and down in the completion documentation
-		['<C-b>'] = cmp.mapping.scroll_docs(-5),
+		['<C-u>'] = cmp.mapping.scroll_docs(-5),
 		['<C-f>'] = cmp.mapping.scroll_docs(5),
 
 		-- toggle completion
