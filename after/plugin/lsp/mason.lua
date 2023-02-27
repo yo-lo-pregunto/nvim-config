@@ -28,7 +28,7 @@ local lsp_flags = {
 -- Setup diagnostics
 vim.diagnostic.config({
 	virtual_text = false,
-	signs = false,
+	signs = true,
 	underline = true,
 	float = {
 		focusable = false,
@@ -50,7 +50,7 @@ local mason = require('mason')
 mason.setup()
 
 local lsp = require('mason-lspconfig')
-local servers = { 'lua_ls', 'clangd', 'pyright', 'rust_analyzer', 'bashls', 'ltex' }
+local servers = { 'lua_ls', 'clangd', 'pyright', 'bashls', 'ltex' }
 lsp.setup({
 	ensure_installed = servers
 })
@@ -64,3 +64,11 @@ for _, server in pairs(servers) do
 		capabilities = capabilities,
 	})
 end
+
+lspconfig.rust_analyzer.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    cmd = {
+        "rustup", "run", "stable", "rust-analyzer",
+    }
+}

@@ -67,11 +67,9 @@ cmp.setup({
     		-- navigate items on the list
     		['<Up>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
     		['<Down>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
-    		['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
-    		['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
 
 		-- scroll up and down in the completion documentation
-		['<C-u>'] = cmp.mapping.scroll_docs(-5),
+		['<C-b>'] = cmp.mapping.scroll_docs(-5),
 		['<C-f>'] = cmp.mapping.scroll_docs(5),
 
 		-- toggle completion
@@ -104,6 +102,22 @@ cmp.setup({
 				fallback()
 			end
 		end, {'i', 's'}),
+        -- go to next placeholder in the snippet
+        ['<C-n>'] = cmp.mapping(function(fallback)
+            if luasnip.jumpable(1) then
+                luasnip.jump(1)
+            else
+                fallback()
+            end
+        end, {'i', 's'}),
+        -- go to previous placeholder in the snippet
+        ['<C-p>'] = cmp.mapping(function(fallback)
+            if luasnip.jumpable(-1) then
+                luasnip.jump(-1)
+            else
+                fallback()
+            end
+        end, {'i', 's'})
 	}),
 	formatting = {
 		fields = { 'kind', 'abbr', 'menu' },

@@ -20,5 +20,13 @@ vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
 vim.keymap.set("n", "w", "<cmd>w!<cr>")
 vim.keymap.set("n", "q", "<cmd>q<cr>")
 
-vim.keymap.set("i", "kj", "<ESC>",opts)
+vim.keymap.set("i",  "kj", "<ESC>",opts)
 
+-- Resize with arrows
+vim.keymap.set("n", "<C-Up>", ":resize -2<CR>", opts)
+vim.keymap.set("n", "<C-Down>", ":resize +2<CR>", opts)
+vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>", opts)
+vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+
+-- Terminal
+vim.keymap.set("t",  "kj", "<C-\\><C-N>",opts)
