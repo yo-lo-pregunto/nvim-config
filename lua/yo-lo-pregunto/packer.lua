@@ -69,7 +69,8 @@ return require('packer').startup(function(use)
     use({'hrsh7th/cmp-nvim-lua'})
 
     -- Snippets
-    use({'L3MON4D3/LuaSnip'})            -- Required
+    use({'L3MON4D3/LuaSnip'})
+    use({'rafamadriz/friendly-snippets'})
 
     -- Gitsigns
     use {
