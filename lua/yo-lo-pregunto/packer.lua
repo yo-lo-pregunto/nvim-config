@@ -89,4 +89,7 @@ return require('packer').startup(function(use)
             vim.o.timeoutlen = 300
         end
     }
+
+    -- CMake
+    use { 'cdelledonne/vim-cmake' }
 end)
