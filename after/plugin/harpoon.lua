@@ -1,8 +1,11 @@
 local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
+local wk = require("which-key")
+local opts = require("yo-lo-pregunto.utils")
 
-vim.keymap.set("n", "<leader>a", mark.add_file)
-vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu)
-
-vim.keymap.set("n", "<S-h>", function() ui.nav_next() end)
-vim.keymap.set("n", "<S-l>", function() ui.nav_prev() end)
+wk.register({
+    ["a"] = { mark.add_file, "Add file" },
+    ["<S-E>"] = { ui.toggle_quick_menu, "Harpoon Menu" },
+    ["<S-l>"]  = { ui.nav_next, "Harpoon Next" },
+    ["<S-h>"]  = { ui.nav_prev, "Harpoon Prev" },
+}, opts.remap_opts)

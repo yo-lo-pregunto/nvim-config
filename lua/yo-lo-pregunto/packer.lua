@@ -80,4 +80,13 @@ return require('packer').startup(function(use)
 
     -- Tmux
     use { 'christoomey/vim-tmux-navigator' }
+
+    -- WhichKey
+    use {
+        "folke/which-key.nvim",
+        config = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 300
+        end
+    }
 end)
