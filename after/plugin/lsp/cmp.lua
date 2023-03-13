@@ -30,7 +30,6 @@ local kind_icons = {
   Operator = "",
   TypeParameter = ""
 }
-
 local merge = function(a, b)
   return vim.tbl_deep_extend('force', {}, a, b)
 end

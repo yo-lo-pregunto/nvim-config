@@ -1,3 +1,7 @@
+local function append(opts, description)
+    opts.desc = description
+    return opts
+end
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -11,14 +15,31 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
   vim.keymap.set('n', '<C-h>', vim.lsp.buf.signature_help, opts)
-  vim.keymap.set('n', '<leader>vrn', vim.lsp.buf.rename, opts)
-  vim.keymap.set('n', '<leader>vca', vim.lsp.buf.code_action, opts)
-  vim.keymap.set('n', '<leader>vrr', vim.lsp.buf.references, opts)
-  vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-  vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
-  vim.keymap.set('n', '<leader>vd', vim.diagnostic.open_float, opts)
-  vim.keymap.set('n', '<leader>vD', vim.diagnostic.setloclist, opts)
+  vim.keymap.set('n', '<leader>vrn', vim.lsp.buf.rename, append(opts, "Rename"))
+  vim.keymap.set('n', '<leader>vca', vim.lsp.buf.code_action, append(opts, "Code action"))
+  vim.keymap.set('n', '<leader>vrr', vim.lsp.buf.references, append(opts, "References"))
+  vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, append(opts, "Prev Diag"))
+  vim.keymap.set('n', ']d', vim.diagnostic.goto_next, append(opts, "Next Diag"))
+  vim.keymap.set('n', '<leader>vd', vim.diagnostic.open_float, append(opts, "Line Diag"))
+  vim.keymap.set('n', '<leader>vD', vim.diagnostic.setloclist, append(opts, "Buffer Diag"))
 end
+
+local border = {
+      {"", "FloatBorder"},
+      {"▔", "FloatBorder"},
+      {"", "FloatBorder"},
+      {"▕", "FloatBorder"},
+      {"", "FloatBorder"},
+      {"▁", "FloatBorder"},
+      {"", "FloatBorder"},
+      {"▏", "FloatBorder"},
+}
+
+-- LSP settings (for overriding per client)
+local handlers =  {
+    ["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = border}),
+    ["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help, {border = border }),
+}
 
 local lsp_flags = {
   -- This is the default in Nvim 0.7+
@@ -57,17 +78,60 @@ lsp.setup({
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lspconfig = require('lspconfig')
-for _, server in pairs(servers) do
-	lspconfig[server].setup({
-		on_attach = on_attach,
-		flags = lsp_flags,
-		capabilities = capabilities,
-	})
-end
+
+lspconfig.lua_ls.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    handlers = handlers,
+    flags = lsp_flags,
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { "vim" },
+            },
+            workspace = {
+                library = {
+                    [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                    [vim.fn.stdpath("config") .. "/lua"] = true,
+                },
+            },
+        },
+    },
+}
+
+lspconfig.clangd.setup({
+    on_attach = on_attach,
+    flags = lsp_flags,
+    capabilities = capabilities,
+    handlers = handlers,
+})
+
+lspconfig.pyright.setup({
+    on_attach = on_attach,
+    flags = lsp_flags,
+    capabilities = capabilities,
+    handlers = handlers,
+})
+
+lspconfig.bashls.setup({
+    on_attach = on_attach,
+    flags = lsp_flags,
+    capabilities = capabilities,
+    handlers = handlers,
+})
+
+lspconfig.ltex.setup({
+    on_attach = on_attach,
+    flags = lsp_flags,
+    capabilities = capabilities,
+    handlers = handlers,
+})
 
 lspconfig.rust_analyzer.setup {
     on_attach = on_attach,
     capabilities = capabilities,
+    handlers = handlers,
+    flags = lsp_flags,
     cmd = {
         "rustup", "run", "stable", "rust-analyzer",
     }
