@@ -100,4 +100,11 @@ return require('packer').startup(function(use)
 		    'nvim-tree/nvim-web-devicons', -- optional, for file icons
 	    },
     }
+
+    -- Terminal
+    use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+        require("toggleterm").setup({
+            hide_numbers = false,
+        })
+    end}
 end)

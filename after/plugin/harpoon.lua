@@ -6,6 +6,6 @@ local opts = require("yo-lo-pregunto.utils")
 wk.register({
     ["a"] = { mark.add_file, "Add file" },
     ["<S-E>"] = { ui.toggle_quick_menu, "Harpoon Menu" },
-    ["<S-l>"]  = { ui.nav_next, "Harpoon Next" },
-    ["<S-h>"]  = { ui.nav_prev, "Harpoon Prev" },
+    ["<Tab>"]  = { ui.nav_next, "Harpoon Next" },
+    ["<S-Tab>"]  = { ui.nav_prev, "Harpoon Prev" },
 }, opts.remap_opts)

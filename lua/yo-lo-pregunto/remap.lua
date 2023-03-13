@@ -18,6 +18,11 @@ vim.keymap.set({"n", "v"}, "<leader>d", [["_d]], { desc = "Null Delete" })
 vim.keymap.set("n", "<leader>w", "<cmd>w!<cr>", { desc = "Save" })
 vim.keymap.set("n", "<leader>q", "<cmd>q<cr>", {desc = "quit" })
 
+vim.keymap.set("n", "<Tab>", "<cmd>bn<cr>", {desc = "Next Buffer" })
+vim.keymap.set("n", "<S-Tab>", "<cmd>bN<cr>", {desc = "Prev Buffer" })
+
+vim.keymap.set("n", "<leader>t", "<cmd>ToggleTerm<cr>", {desc = "Terminal" })
+
 vim.keymap.set("i",  "kj", "<ESC>",opts)
 
 -- Resize with arrows
