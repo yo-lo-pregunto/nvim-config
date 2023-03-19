@@ -90,7 +90,7 @@ cmp.setup({
 			elseif check_back_space() then
 				fallback()
 			else
-				cmp.complete()
+				fallback()
 			end
 		end, {'i', 's'}),
 

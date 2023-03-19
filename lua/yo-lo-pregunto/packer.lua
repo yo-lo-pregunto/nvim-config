@@ -108,4 +108,7 @@ return require('packer').startup(function(use)
             hide_numbers = false,
         })
     end}
+
+    -- Latex
+    use { 'lervag/vimtex' }
 end)

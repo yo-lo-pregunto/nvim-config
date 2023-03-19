@@ -25,14 +25,14 @@ local on_attach = function(client, bufnr)
 end
 
 local border = {
-      {"", "FloatBorder"},
-      {"▔", "FloatBorder"},
-      {"", "FloatBorder"},
-      {"▕", "FloatBorder"},
-      {"", "FloatBorder"},
-      {"▁", "FloatBorder"},
-      {"", "FloatBorder"},
-      {"▏", "FloatBorder"},
+      {"╭", "FloatBorder"},
+      {"─", "FloatBorder"},
+      {"╮", "FloatBorder"},
+      {"⎪", "FloatBorder"},
+      {"╯", "FloatBorder"},
+      {"─", "FloatBorder"},
+      {"╰", "FloatBorder"},
+      {"⎪", "FloatBorder"},
 }
 
 -- LSP settings (for overriding per client)
