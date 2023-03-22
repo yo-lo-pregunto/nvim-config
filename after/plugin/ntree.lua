@@ -4,7 +4,7 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
         hide_root_folder = true,
         signcolumn = "yes",
         float = {
-          enable = true,
+          enable = false,
           open_win_config = {
             relative = "cursor",
             height = 10,

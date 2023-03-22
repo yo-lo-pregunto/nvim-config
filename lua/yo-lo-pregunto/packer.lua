@@ -51,9 +51,6 @@ return require('packer').startup(function(use)
     use('nvim-treesitter/playground')
     use('nvim-treesitter/nvim-treesitter-context')
 
-    -- Harpoon
-    use('ThePrimeagen/harpoon')
-
     -- LSP
     use {
         "williamboman/mason.nvim",
@@ -111,4 +108,7 @@ return require('packer').startup(function(use)
 
     -- Latex
     use { 'lervag/vimtex' }
+
+    -- VimWiki
+    use { 'vimwiki/vimwiki' }
 end)

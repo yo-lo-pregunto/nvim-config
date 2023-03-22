@@ -15,11 +15,8 @@ vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "SysClipboard" })
 
 vim.keymap.set({"n", "v"}, "<leader>d", [["_d]], { desc = "Null Delete" })
 
-vim.keymap.set("n", "<leader>w", "<cmd>w!<cr>", { desc = "Save" })
+vim.keymap.set("n", "<leader>s", "<cmd>w!<cr>", { desc = "Save" })
 vim.keymap.set("n", "<leader>q", "<cmd>q<cr>", {desc = "quit" })
-
-vim.keymap.set("n", "<Tab>", "<cmd>bn<cr>", {desc = "Next Buffer" })
-vim.keymap.set("n", "<S-Tab>", "<cmd>bN<cr>", {desc = "Prev Buffer" })
 
 vim.keymap.set("n", "<leader>t", "<cmd>ToggleTerm<cr>", {desc = "Terminal" })
 
@@ -32,4 +29,10 @@ vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Terminal
-vim.keymap.set("t",  "kj", "<C-\\><C-N>",opts)
+vim.keymap.set("t",  "KJ", "<C-\\><C-N>",opts)
+
+-- Better terminal navigation
+vim.keymap.set("t", "<A-h>", "<C-\\><C-N><C-w>h", { silent = true })
+vim.keymap.set("t", "<A-j>", "<C-\\><C-N><C-w>j", { silent = true })
+vim.keymap.set("t", "<A-k>", "<C-\\><C-N><C-w>k", { silent = true })
+vim.keymap.set("t", "<A-l>", "<C-\\><C-N><C-w>l", { silent = true })

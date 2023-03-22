@@ -3,8 +3,8 @@ local wk = require("which-key")
 local opts = require("yo-lo-pregunto.utils")
 
 wk.register({
-    ['s'] = {
-        name = "Search",
+    ['f'] = {
+        name = "Find",
         ['f'] = { builtin.find_files, "File" },
         ['g'] = { builtin.git_files, "Git Files" },
         ['h'] = { builtin.help_tags, "Help" },
