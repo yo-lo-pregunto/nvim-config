@@ -111,4 +111,7 @@ return require('packer').startup(function(use)
 
     -- VimWiki
     use { 'vimwiki/vimwiki' }
+
+    -- Git Fugitive
+    use { 'tpope/vim-fugitive' }
 end)
