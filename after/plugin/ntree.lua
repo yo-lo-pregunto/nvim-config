@@ -1,7 +1,6 @@
 require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
       on_attach = "default", -- keymaps
       view = {
-        hide_root_folder = true,
         signcolumn = "yes",
         float = {
           enable = false,

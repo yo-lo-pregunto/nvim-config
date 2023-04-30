@@ -1,16 +1,12 @@
-local builtin = require('telescope.builtin')
-local wk = require("which-key")
-local opts = require("yo-lo-pregunto.utils")
-
-wk.register({
-    ['f'] = {
-        name = "Find",
-        ['f'] = { builtin.find_files, "File" },
-        ['g'] = { builtin.git_files, "Git Files" },
-        ['h'] = { builtin.help_tags, "Help" },
-        ['b'] = { builtin.buffers, "Buffers" },
-        ['w'] = { function()
-            builtin.grep_string({ search = vim.fn.input("Grep > ") })
-        end, "Word" }
-    }
-}, opts.remap_opts)
+local actions = require('telescope.actions')
+require('telescope').setup({
+        mappings = {
+            i = {
+                ["<esc>"] = actions.close,
+                ["<RightMouse>"] = actions.close,
+                ["<LeftMouse>"] = actions.select_default,
+                ["<ScrollWheelDown>"] = actions.move_selection_next,
+                ["<ScrollWheelUp>"] = actions.move_selection_previous,
+            }
+        },
+})
