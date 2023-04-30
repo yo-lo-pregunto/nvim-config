@@ -48,9 +48,3 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
         },
       },
     } -- END_DEFAULT_OPTS
-
-require("which-key").register({
-        ['e'] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-    },
-    require("yo-lo-pregunto.utils").remap_opts
-)

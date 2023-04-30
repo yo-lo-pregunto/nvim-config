@@ -1,3 +1,4 @@
+local wk = require("which-key")
 local function append(opts, description)
     opts.desc = description
     return opts
@@ -11,17 +12,35 @@ local on_attach = function(client, bufnr)
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   local opts = { noremap=true, silent=true, buffer=bufnr }
-  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-  vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-  vim.keymap.set('n', '<C-h>', vim.lsp.buf.signature_help, append(opts, "Sign Help"))
-  vim.keymap.set('n', '<leader>vrn', vim.lsp.buf.rename, append(opts, "Rename"))
-  vim.keymap.set('n', '<leader>vca', vim.lsp.buf.code_action, append(opts, "Code action"))
-  vim.keymap.set('n', '<leader>vrr', vim.lsp.buf.references, append(opts, "References"))
-  vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, append(opts, "Prev Diag"))
-  vim.keymap.set('n', ']d', vim.diagnostic.goto_next, append(opts, "Next Diag"))
-  vim.keymap.set('n', '<leader>vd', vim.diagnostic.open_float, append(opts, "Line Diag"))
-  vim.keymap.set('n', '<leader>vD', vim.diagnostic.setloclist, append(opts, "Buffer Diag"))
+  wk.register({
+      ['g'] = {
+          name = "Go",
+          ['D'] = { vim.lsp.buf.declaration, "Declaration" },
+          ['d'] = { vim.lsp.buf.definition, "Definition" },
+          ['r'] = { vim.lsp.buf.references, "References" },
+      },
+      ['K'] =  { vim.lsp.buf.hover, "Hover" },
+      ['<C-h>'] = { vim.lsp.buf.signature_help,  "Sign Help" },
+      ['<leader>'] = {
+          ['l'] = {
+              name = "LSP",
+              ['a'] = { vim.lsp.buf.code_action, "Code Actions" },
+              ['b'] = { "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<cr>", "Buffer Diagnostics" },
+              ['d'] = { vim.diagnostic.open_float, "Diagnostic" },
+              ['q'] = { vim.diagnostic.setloclist, "Quickfix" },
+              ['r'] = { vim.lsp.buf.rename, "Rename" },
+          },
+      },
+      [']'] = {
+          name = "Next",
+          ['d'] = { vim.diagnostic.goto_next,  "Diagnostic" },
+      },
+      ['['] = {
+          name = "Previous",
+          ['d'] = { vim.diagnostic.goto_prev,  "Diagnostic" },
+      }
+  }, opts)
+
 end
 
 local border = {

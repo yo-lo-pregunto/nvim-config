@@ -16,9 +16,10 @@ vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "SysClipboard" })
 vim.keymap.set({"n", "v"}, "<leader>d", [["_d]], { desc = "Null Delete" })
 
 vim.keymap.set("n", "<leader>s", "<cmd>w!<cr>", { desc = "Save" })
-vim.keymap.set("n", "<leader>q", "<cmd>q<cr>", {desc = "quit" })
+vim.keymap.set("n", "<leader>q", "<cmd>q<cr>", { desc = "Quit" })
 
-vim.keymap.set("n", "<leader>t", "<cmd>ToggleTerm<cr>", {desc = "Terminal" })
+vim.keymap.set("n", "[b", "<cmd>bN<cr>", { desc = "Buffer" })
+vim.keymap.set("n", "]b", "<cmd>bn<cr>", { desc = "Buffer" })
 
 vim.keymap.set("i",  "kj", "<ESC>",opts)
 
