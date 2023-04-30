@@ -3,3 +3,4 @@ vim.g.cmake_build_dir_location = './.lsp_conf'
 
 -- Vimtex
 vim.g.vimtex_view_method = 'zathura'
+vim.g.tex_conceal = "abdmgs"
