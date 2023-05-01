@@ -130,4 +130,40 @@ return require('packer').startup(function(use)
 
     -- Git Fugitive
     use { 'tpope/vim-fugitive' }
+
+    -- Lualine
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true },
+        config = function ()
+            local  line  = require("lualine")
+
+            local function curr_pos()
+                local pos = vim.api.nvim_win_get_cursor(0)
+                local l = vim.api.nvim_buf_line_count(0)
+                return pos[1] .. '/' .. l .. ': ' .. pos[2] + 1
+            end
+
+            line.setup {
+                options = {
+                    disabled_filetypes = {
+                        statusline = {"NvimTree"},
+                    },
+                    ignore_focus = {},
+                },
+                sections = {
+                    lualine_a = { 'mode' },
+                    lualine_b = { 'branch' },
+                    lualine_c = { {'filename', path = 1} },
+                    lualine_x = { 'location'  },
+                    lualine_y = { },
+                    lualine_z = { },
+                },
+                inactive_sections = {
+                    lualine_c = { {'filename', path =1} },
+                    lualine_x = {'location'},
+                },
+            }
+        end
+    }
 end)
