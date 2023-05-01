@@ -138,12 +138,6 @@ return require('packer').startup(function(use)
         config = function ()
             local  line  = require("lualine")
 
-            local function curr_pos()
-                local pos = vim.api.nvim_win_get_cursor(0)
-                local l = vim.api.nvim_buf_line_count(0)
-                return pos[1] .. '/' .. l .. ': ' .. pos[2] + 1
-            end
-
             line.setup {
                 options = {
                     disabled_filetypes = {
