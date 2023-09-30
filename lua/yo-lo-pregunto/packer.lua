@@ -125,6 +125,8 @@ return require('packer').startup(function(use)
     -- Latex
     use { 'lervag/vimtex' }
 
+    use { 'jacoborus/tender.vim' }
+
     -- VimWiki
     use { 'vimwiki/vimwiki' }
 

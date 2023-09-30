@@ -146,6 +146,13 @@ lspconfig.ltex.setup({
     handlers = handlers,
 })
 
+lspconfig.texlab.setup({
+    on_attach = on_attach,
+    flags = lsp_flags,
+    capabilities = capabilities,
+    handlers = handlers,
+})
+
 lspconfig.rust_analyzer.setup {
     on_attach = on_attach,
     capabilities = capabilities,
@@ -154,4 +161,11 @@ lspconfig.rust_analyzer.setup {
     cmd = {
         "rustup", "run", "stable", "rust-analyzer",
     }
+}
+
+lspconfig.cmake.setup {
+    on_attach = on_attach,
+    flags = lsp_flags,
+    capabilities = capabilities,
+    handlers = handlers,
 }

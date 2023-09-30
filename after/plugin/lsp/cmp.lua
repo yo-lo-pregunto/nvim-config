@@ -45,7 +45,7 @@ end
 
 cmp.setup({
 	view = {
-		entries = {name = 'custom', selection_order = 'near_cursor' } 
+		entries = {name = 'custom', selection_order = 'near_cursor' }
 	},
 	snippet = {
 		expand = function(args)
@@ -60,66 +60,62 @@ cmp.setup({
 		{ name = 'buffer' },
 		{ name = 'path' },
 	}),
-	mapping = cmp.mapping.preset.insert({
-		-- confirm selection
-    		['<CR>'] = cmp.mapping.confirm({select = false}),
-    		['<C-y>'] = cmp.mapping.confirm({select = false}),
+    mapping = cmp.mapping.preset.insert({
+        -- confirm selection
+        ['<CR>'] = cmp.mapping.confirm({select = false}),
+        ['<C-y>'] = cmp.mapping.confirm({select = false}),
 
-    		-- navigate items on the list
-    		['<Up>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
-    		['<Down>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+        -- navigate items on the list
+        ['<Up>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+        ['<Down>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
 
-		-- scroll up and down in the completion documentation
-		['<C-b>'] = cmp.mapping.scroll_docs(-5),
-		['<C-f>'] = cmp.mapping.scroll_docs(5),
+        -- scroll up and down in the completion documentation
+        ['<C-b>'] = cmp.mapping.scroll_docs(-5),
+        ['<C-f>'] = cmp.mapping.scroll_docs(5),
 
-		-- toggle completion
-		['<C-space>'] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.abort()
-			else
-				cmp.complete()
-			end
-		end),
-		-- when menu is visible, navigate to next item
-		-- when line is empty, insert a tab character
-		-- else, activate completion
-		['<Tab>'] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_next_item({ cmp.SelectBehavior.Select })
-			elseif check_back_space() then
-				fallback()
-			else
-				fallback()
-			end
-		end, {'i', 's'}),
-
-		-- when menu is visible, navigate to previous item on list
-		-- else, revert to default behavior
-		['<S-Tab>'] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_prev_item({ cmp.SelectBehavior.Select })
-			else
-				fallback()
-			end
-		end, {'i', 's'}),
-        -- go to next placeholder in the snippet
-        ['<C-n>'] = cmp.mapping(function(fallback)
-            if luasnip.jumpable(1) then
-                luasnip.jump(1)
+        -- toggle completion
+        ['<C-space>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.abort()
+            else
+                cmp.complete()
+            end
+        end),
+        -- when menu is visible, navigate to next item
+        -- when line is empty, insert a tab character
+        -- else, activate completion
+        ['<Tab>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_next_item({ cmp.SelectBehavior.Select })
+            elseif check_back_space() then
+                fallback()
             else
                 fallback()
             end
         end, {'i', 's'}),
-        -- go to previous placeholder in the snippet
-        ['<C-p>'] = cmp.mapping(function(fallback)
-            if luasnip.jumpable(-1) then
-                luasnip.jump(-1)
+
+        -- when menu is visible, navigate to previous item on list
+        -- else, revert to default behavior
+        ['<S-Tab>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_prev_item({ cmp.SelectBehavior.Select })
             else
                 fallback()
             end
+        end, {'i', 's'}),
+        -- go to next placeholder in the snippet
+        ['<C-n>'] = cmp.mapping(function(_)
+            if luasnip.jumpable(1) then
+                luasnip.jump(1)
+            end
+        end, {'i', 's'}),
+        -- go to previous placeholder in the snippet
+        ['<C-p>'] = cmp.mapping(function(_)
+            if luasnip.jumpable(-1) then
+                luasnip.jump(-1)
+            end
         end, {'i', 's'})
-	}),
+    }),
 	formatting = {
 		fields = { 'kind', 'abbr', 'menu' },
 		format = function(entry, vim_item)
@@ -142,5 +138,8 @@ cmp.setup({
 			max_height = 15,
 			max_width = 60,
 		})
-	}
+	},
+    experimental = {
+        ghost_text = true
+    }
 })
