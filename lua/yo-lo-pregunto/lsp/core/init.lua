@@ -1,4 +1,3 @@
-
 local M = {}
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -32,7 +31,7 @@ function M.on_attach(client, bufnr)
       k.set("n", "<leader>lq", vim.diagnostic.setloclist, opts) -- show  diagnostics for file
 
       opts.desc = "Show line diagnostics"
-      k.set("n", "<leader>d", vim.diagnostic.open_float, opts) -- show diagnostics for line
+      k.set("n", "<leader>ld", vim.diagnostic.open_float, opts) -- show diagnostics for line
 
       opts.desc = "Previous diagnostic"
       k.set("n", "[d", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer
