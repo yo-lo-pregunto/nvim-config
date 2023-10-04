@@ -1,13 +1,21 @@
 return {
-    "EdenEast/nightfox.nvim",
+    'kvrohit/mellow.nvim',
+    dependencies = {
+        "catppuccin/nvim"
+    },
     priority = 1000,
     config = function()
-        require("nightfox").setup({
-            options = {
-                transparent = true,
-            },
-        })
 
-        vim.cmd.colorscheme("carbonfox")
-    end,
+        require("catppuccin").setup({
+            flavour = "mocha", -- latte, frappe, macchiato, mocha
+            background = { -- :h background
+            light = "latte",
+            dark = "mocha",
+        },
+        transparent_background = true, -- disables setting the background color.
+        term_colors = true, -- sets terminal colors (e.g. `g:terminal_color_0`)
+    })
+
+    vim.cmd.colorscheme("catppuccin")
+end,
 }

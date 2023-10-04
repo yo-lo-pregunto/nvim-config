@@ -8,7 +8,8 @@ return {
         "L3MON4D3/LuaSnip", -- snippet engine
         "rafamadriz/friendly-snippets", -- useful snippets
         "onsails/lspkind.nvim", -- vs-code like pictograms
-        "hrsh7th/cmp-nvim-lsp-signature-help"
+        "hrsh7th/cmp-nvim-lsp-signature-help",
+        "f3fora/cmp-spell"
     },
     config = function()
 
@@ -103,6 +104,12 @@ return {
             { name = "luasnip" }, -- snippets
             { name = "buffer" }, -- text within current buffer
             { name = "path" }, -- file system paths
+            { name = "spell", keyword_length = 4, option = {
+                keep_all_entries = false,
+                enable_in_contex = function ()
+                    return true
+                end
+            }}
         }),
         -- configure lspkind for vs-code like pictograms in completion menu
         formatting = {
