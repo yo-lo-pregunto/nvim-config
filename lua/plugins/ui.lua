@@ -12,7 +12,7 @@ return {
             vim.api.nvim_create_autocmd("FileType", {
                 pattern = {
                     "help",
-                    "NvimTree",
+                    "neo-tree",
                     "dashboard",
                     "lazy",
                     "mason",
@@ -41,7 +41,7 @@ return {
                 filetypes = {
                     "help",
                     "Trouble",
-                    "NvimTree",
+                    "neo-tree",
                     "lazy",
                     "mason",
                     "notify",

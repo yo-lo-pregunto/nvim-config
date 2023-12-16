@@ -45,7 +45,3 @@ opt.swapfile = false
 opt.backup = false
 
 opt.pumheight = 7 -- Numer of items in popup menu
-
--- nvim-tree config
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
