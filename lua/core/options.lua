@@ -15,8 +15,6 @@ opt.tabstop = 4 -- 4 spaces per tab
 opt.shiftwidth = 4 -- Uses 4 spaces when indent
 opt.autoindent = true -- Copy indent from current line when stargin new one
 
-
-
 -- Search
 opt.ignorecase = true -- Ignore case when searching
 opt.smartcase = true -- If you include mixed case in your search, assumes you want case-sensitive
@@ -24,7 +22,6 @@ opt.incsearch = true -- Show you live match. Not recommended on slow computers.
 
 opt.virtualedit = 'block' -- When Visual Block uses cells
 opt.inccommand = 'split' -- Show a quickfix list with live changes
-
 
 -- Appereance
 opt.termguicolors = true -- Nee a true color terminal
@@ -45,3 +42,5 @@ opt.swapfile = false
 opt.backup = false
 
 opt.pumheight = 7 -- Numer of items in popup menu
+
+opt.list = true -- Show tabs if any
