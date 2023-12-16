@@ -11,6 +11,7 @@ return{
             ["<leader>g"] = { name = "Git", _ = 'which_key_ignore' },
             ["<leader>q"] = { name = "Quit" },
             ["<leader>s"] = { name = "Search", _ = 'which_key_ignore' },
+            ["<leader>;"] = { name = "Harpoon", _ = 'which_key_ignore' },
         },
     },
     config = function(_, opts)
