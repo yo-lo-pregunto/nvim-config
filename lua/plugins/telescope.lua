@@ -36,6 +36,7 @@ return {
         })
 
         telescope.load_extension("fzf")
+        local ivy = require('telescope.themes').get_ivy()
 
         local function telescope_live_grep_open_files()
             require('telescope.builtin').live_grep({
@@ -44,9 +45,7 @@ return {
             })
         end
 
-
-        local ivy = require('telescope.themes').get_ivy()
-        vim.keymap.set('n', '<leader>s/', function() telescope_live_grep_open_files(ivy) end, { desc = '[S]earch [/] in Open Files' })
+        vim.keymap.set('n', '<leader>s/', function() telescope_live_grep_open_files(ivy) end, { desc = 'Open Files' })
         vim.keymap.set("n", "<leader>sf", function() builtin.find_files(ivy) end, { desc = "File", })
         vim.keymap.set("n", "<leader>sh", function() builtin.help_tags(ivy) end, { desc = "Help", })
         vim.keymap.set("n", "<leader>sr", function() builtin.resume(ivy) end, { desc = "Resume", })
