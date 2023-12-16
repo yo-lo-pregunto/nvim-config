@@ -11,7 +11,6 @@ return {
     config = function(_, opts)
         local telescope = require("telescope")
         local actions = require("telescope.actions")
-        local builtin = require("telescope.builtin")
 
         telescope.setup({
             defaults = {
@@ -36,6 +35,9 @@ return {
         })
 
         telescope.load_extension("fzf")
+    end,
+    keys = function()
+        local builtin = require("telescope.builtin")
         local ivy = require('telescope.themes').get_ivy()
 
         local function telescope_live_grep_open_files()
@@ -45,14 +47,16 @@ return {
             })
         end
 
-        vim.keymap.set('n', '<leader>s/', function() telescope_live_grep_open_files(ivy) end, { desc = 'Open Files' })
-        vim.keymap.set("n", "<leader>sf", function() builtin.find_files(ivy) end, { desc = "File", })
-        vim.keymap.set("n", "<leader>sh", function() builtin.help_tags(ivy) end, { desc = "Help", })
-        vim.keymap.set("n", "<leader>sr", function() builtin.resume(ivy) end, { desc = "Resume", })
-        vim.keymap.set("n", "<leader>sw", function() builtin.grep_string(ivy) end, { desc = "word", })
-        vim.keymap.set("n", "<leader>sj", function() builtin.jumplist(ivy) end, { desc= "Jumps" })
-        vim.keymap.set("n", "<leader>sg", function()
-            builtin.grep_string(ivy, { search = vim.fn.input("Grep > ") })
-        end, { desc = "Grep", })
+        return {
+            { "<leader>s/", function() telescope_live_grep_open_files(ivy) end, desc = 'Open Files' },
+            { "<leader>sf", function() builtin.find_files(ivy) end, desc = "File", },
+            { "<leader>sh", function() builtin.help_tags(ivy) end, desc = "Help", },
+            { "<leader>sr", function() builtin.resume(ivy) end, desc = "Resume", },
+            { "<leader>sw", function() builtin.grep_string(ivy) end, desc = "word" },
+            { "<leader>sj", function() builtin.jumplist(ivy) end, desc= "Jumps" },
+            { "<leader>sg", function()
+                builtin.grep_string(ivy, { search = vim.fn.input("Grep > ") })
+            end, desc = "Grep" }
+        }
     end,
 }
