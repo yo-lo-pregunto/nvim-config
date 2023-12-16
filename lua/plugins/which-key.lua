@@ -8,6 +8,7 @@ return{
             ["g"] = { name = "Goto" },
             ["]"] = { name = "Next" },
             ["["] = { name = "Prev" },
+            ["gs"] = { name = "Sorround", _ = 'which_key_ignore' },
             ["<leader>g"] = { name = "Git", _ = 'which_key_ignore' },
             ["<leader>q"] = { name = "Quit" },
             ["<leader>s"] = { name = "Search", _ = 'which_key_ignore' },

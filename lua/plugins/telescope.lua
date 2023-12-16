@@ -55,7 +55,7 @@ return {
             { "<leader>sw", function() builtin.grep_string(ivy) end, desc = "word" },
             { "<leader>sj", function() builtin.jumplist(ivy) end, desc= "Jumps" },
             { "<leader>sg", function()
-                builtin.grep_string(ivy, { search = vim.fn.input("Grep > ") })
+                builtin.grep_string({ search = vim.fn.input("Grep > ") })
             end, desc = "Grep" }
         }
     end,
