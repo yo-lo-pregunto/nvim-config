@@ -3,6 +3,7 @@ return {
     build = ":TSUpdate",
     opts = {
         highlight = { enable = true },
+        indent = { enable = true },
         auto_install = true,
         ensure_installed = { "c", "lua", "vim", "vimdoc", "query" },
     },
