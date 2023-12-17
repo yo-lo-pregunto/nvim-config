@@ -8,7 +8,7 @@ return {
         "nvim-tree/nvim-web-devicons",
         { "nvim-telescope/telescope-fzf-native.nvim", build = build_str },
     },
-    config = function(_, opts)
+    config = function(_, _) -- params: plugin, opts
         local telescope = require("telescope")
         local actions = require("telescope.actions")
 
@@ -48,7 +48,7 @@ return {
         end
 
         return {
-            { "<leader>s/", function() telescope_live_grep_open_files(ivy) end, desc = 'Open Files' },
+            { "<leader>s/", function() telescope_live_grep_open_files() end, desc = 'Open Files' },
             { "<leader>sf", function() builtin.find_files(ivy) end, desc = "File", },
             { "<leader>sh", function() builtin.help_tags(ivy) end, desc = "Help", },
             { "<leader>sr", function() builtin.resume(ivy) end, desc = "Resume", },

@@ -27,3 +27,9 @@ k.set({"n", "v"}, "<leader>d", [["_d]], { desc = "Null Delete" })
 -- Exit insert mode
 k.set("i", "kj", "<ESC>", { desc = "Exit insert mode" })
 k.set("t", "KJ", "<C-\\><C-N>", { desc = "Exit insert mode" })
+
+-- Terminal --
+k.set("t", "<C-h>", "<C-\\><C-N><C-w>h", { silent = true })
+k.set("t", "<C-j>", "<C-\\><C-N><C-w>j", { silent = true })
+k.set("t", "<C-k>", "<C-\\><C-N><C-w>k", { silent = true })
+k.set("t", "<C-l>", "<C-\\><C-N><C-w>l", { silent = true })
