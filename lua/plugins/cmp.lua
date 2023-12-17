@@ -36,6 +36,7 @@ return {
             mapping = cmp.mapping.preset.insert({
                 -- confirm selection
                 ['<CR>'] = cmp.mapping.confirm({select = true}),
+                 ["<C-Space>"] = cmp.mapping.complete(),
 
                 -- navigate items on the list
                 ['<Up>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),

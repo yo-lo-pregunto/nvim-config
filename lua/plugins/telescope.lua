@@ -2,7 +2,7 @@ local build_str = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build
 
 return {
     "nvim-telescope/telescope.nvim",
-    branch = "0.1.5",
+    branch = '0.1.x',
     dependencies = {
         "nvim-lua/plenary.nvim",
         "nvim-tree/nvim-web-devicons",
