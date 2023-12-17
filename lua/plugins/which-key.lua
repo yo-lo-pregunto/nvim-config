@@ -10,9 +10,9 @@ return{
             ["["] = { name = "Prev" },
             ["gs"] = { name = "Sorround", _ = 'which_key_ignore' },
             ["<leader>g"] = { name = "Git", _ = 'which_key_ignore' },
-            ["<leader>q"] = { name = "Quit" },
+            ["<leader>l"] = { name = "Lsp", _ = 'which_key_ignore' },
             ["<leader>s"] = { name = "Search", _ = 'which_key_ignore' },
-            ["<leader>;"] = { name = "Harpoon", _ = 'which_key_ignore' },
+            ["<leader>h"] = { name = "Harpoon", _ = 'which_key_ignore' },
         },
     },
     config = function(_, opts)

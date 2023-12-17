@@ -5,12 +5,12 @@ return {
         local ui = require("harpoon.ui")
 
         return {
-            { "<leader>;a", mark.add_file, desc = "Add" },
-            { "<leader>;e", ui.toggle_quick_menu, desc = "View" },
-            { "<leader>;j", function() ui.nav_file(1) end, desc = "Buf 1" },
-            { "<leader>;k", function() ui.nav_file(2) end, desc = "Buf 2" },
-            { "<leader>;l", function() ui.nav_file(3) end, desc = "Buf 3" },
-            { "<leader>;;", function() ui.nav_file(3) end, desc = "Buf 4" },
+            { "<leader>ha", mark.add_file, desc = "Add" },
+            { "<leader>he", ui.toggle_quick_menu, desc = "View" },
+            { "<leader>hj", function() ui.nav_file(1) end, desc = "Buf 1" },
+            { "<leader>hk", function() ui.nav_file(2) end, desc = "Buf 2" },
+            { "<leader>hl", function() ui.nav_file(3) end, desc = "Buf 3" },
+            { "<leader>h;", function() ui.nav_file(3) end, desc = "Buf 4" },
         }
     end,
 }

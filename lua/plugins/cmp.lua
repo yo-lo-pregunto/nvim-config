@@ -104,7 +104,8 @@ return {
                     {
                         max_height = 20,
                         max_width = 60,
-                    })
+                    }),
+                completion = cmp.config.window.bordered(),
             },
             experimental = {
                 ghost_text = { hl_group = "Comments" },
