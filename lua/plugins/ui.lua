@@ -27,6 +27,7 @@ return {
             })
         end,
     },
+
     -- indent guides for Neovim
     {
         "lukas-reineke/indent-blankline.nvim",
@@ -54,6 +55,37 @@ return {
         main = "ibl",
     },
 
+    {
+        'nvim-lualine/lualine.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
+        opts = {
+            options = {
+                theme = "dracula",
+                disabled_filetypes = {
+                    statusline = {"NvimTree"},
+                },
+                ignore_focus = {},
+            },
+            sections = {
+                lualine_a = { 'mode' },
+                lualine_b = {'branch', 'diagnostics'},
+                lualine_c = { {'filename', path = 1} },
+                lualine_x = { '%l/%L:%02c' },
+                lualine_y = {},
+                lualine_z = {},
+            },
+            inactive_sections = {
+                lualine_c = { {'filename', path =1} },
+                lualine_x = {'location'},
+            },
+            extensions = { "neo-tree", "lazy" },
+        },
+        config = function (_, opts)
+            vim.opt.showmode = false
+            require('lualine').setup(opts)
+        end
+    },
+
     -- For current word highlighting
     {
         "RRethy/vim-illuminate",
@@ -67,28 +99,6 @@ return {
         config = function(_, opts)
             require("illuminate").configure(opts)
 
-        -- Not sure if I really needs the keymaps.
-        --     local function map(key, dir, buffer)
-        --         vim.keymap.set("n", key, function()
-        --             require("illuminate")["goto_" .. dir .. "_reference"](false)
-        --         end, { desc = dir:sub(1, 1):upper() .. dir:sub(2) .. " Reference", buffer = buffer })
-        --     end
-        --
-        --     map("]]", "next")
-        --     map("[[", "prev")
-        --
-        --     -- also set it after loading ftplugins, since a lot overwrite [[ and ]]
-        --     vim.api.nvim_create_autocmd("FileType", {
-        --         callback = function()
-        --             local buffer = vim.api.nvim_get_current_buf()
-        --             map("]]", "next", buffer)
-        --             map("[[", "prev", buffer)
-        --         end,
-        --     })
         end,
-        -- keys = {
-        --     { "]]", desc = "Next Reference" },
-        --     { "[[", desc = "Prev Reference" },
-        -- },
     }
 }
