@@ -13,7 +13,7 @@ opt.colorcolumn = "80" -- Show vertical line
 opt.expandtab = true -- Expand tab for spaces
 opt.tabstop = 4 -- 4 spaces per tab
 opt.shiftwidth = 4 -- Uses 4 spaces when indent
-opt.autoindent = true -- Copy indent from current line when stargin new one
+opt.autoindent = true -- Copy indent from current line when starting new one
 
 -- Search
 opt.ignorecase = true -- Ignore case when searching
@@ -23,7 +23,7 @@ opt.incsearch = true -- Show you live match. Not recommended on slow computers.
 opt.virtualedit = 'block' -- When Visual Block uses cells
 opt.inccommand = 'split' -- Show a quickfix list with live changes
 
--- Appereance
+-- Appearance
 opt.termguicolors = true -- Nee a true color terminal
 opt.background = "dark" -- Colorschemes that can be light or dark will be set to dark
 opt.signcolumn = "yes" -- Show sign column so that text doesn't shift
@@ -41,6 +41,6 @@ opt.updatetime = 50
 opt.swapfile = false
 opt.backup = false
 
-opt.pumheight = 7 -- Numer of items in popup menu
+opt.pumheight = 7 -- Number of items in pop-up menu
 
 opt.list = true -- Show tabs if any
