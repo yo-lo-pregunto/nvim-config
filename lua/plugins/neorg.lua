@@ -8,6 +8,7 @@ return {
                 ["core.defaults"] = {}, -- Loads default behaviour
                 ["core.concealer"] = {
                     config = {
+                        folds = true,
                         icons_preset = "diamond",
                     },
                 }, -- Adds pretty icons to your documents

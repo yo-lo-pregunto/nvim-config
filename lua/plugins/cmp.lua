@@ -10,7 +10,8 @@ return {
         "rafamadriz/friendly-snippets", -- useful snippets
         "onsails/lspkind.nvim", -- vs-code like pictograms
         "hrsh7th/cmp-nvim-lsp-signature-help",
-        "f3fora/cmp-spell"
+        "f3fora/cmp-spell",
+        "kdheepak/cmp-latex-symbols",
     },
     config = function()
 
@@ -35,8 +36,8 @@ return {
             },
             mapping = cmp.mapping.preset.insert({
                 -- confirm selection
-                ['<CR>'] = cmp.mapping.confirm({select = true}),
-                 ["<C-Space>"] = cmp.mapping.complete(),
+                ['<CR>'] = cmp.mapping.confirm({ select = false }),
+                ["<C-Space>"] = cmp.mapping.complete(),
 
                 -- navigate items on the list
                 ['<Up>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
@@ -91,7 +92,13 @@ return {
                     enable_in_contex = function ()
                         return true
                     end
-                }}
+                }},
+                {
+                    name = "latex_symbols",
+                    option = {
+                        strategy = 0, -- mixed
+                    },
+                },
             }),
             -- configure lspkind for vs-code like pictograms in completion menu
             formatting = {

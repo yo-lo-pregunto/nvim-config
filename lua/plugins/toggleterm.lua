@@ -5,6 +5,6 @@ return {
 --        shading_factor = -1
     },
     keys = {
-        { "<leader>t", "<cmd>ToggleTerm<cr>", { desc = "Terminal" } },
+        { "<leader>t", "<cmd>ToggleTerm<cr>", desc = "Terminal" },
     }
 }
