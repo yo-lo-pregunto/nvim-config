@@ -2,6 +2,9 @@ return {
     "catppuccin/nvim",
     lazy = false,
     priority = 1000,
+    dependencies = {
+        "projekt0n/github-nvim-theme"
+    },
     config = function()
         require("catppuccin").setup({
             flavour = 'mocha',
