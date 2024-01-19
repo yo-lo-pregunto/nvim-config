@@ -8,15 +8,18 @@ return {
         build = ":TSUpdate",
         event = { "BufReadPre", "BufNewFile" },
         opts = {
-            highlight = { enable = true },
+            highlight = {
+                enable = true,
+                disable = { "latex" },
+            },
             indent = { enable = true },
             incremental_selection = {
                 enable = true,
                 keymaps = {
-                    init_selection = '<c-space>',
-                    node_incremental = '<c-space>',
-                    scope_incremental = '<c-s>',
-                    node_decremental = '<BS>',
+                    init_selection = '<leader>ns',
+                    node_incremental = '<leader>ni',
+                    scope_incremental = '<leader>ns',
+                    node_decremental = '<leader>nd',
                 },
             },
             auto_install = true,
