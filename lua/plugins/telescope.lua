@@ -7,6 +7,7 @@ return {
         "nvim-lua/plenary.nvim",
         "nvim-tree/nvim-web-devicons",
         { "nvim-telescope/telescope-fzf-native.nvim", build = build_str },
+        "nvim-telescope/telescope-bibtex.nvim",
     },
     config = function(_, _) -- params: plugin, opts
         local telescope = require("telescope")
@@ -31,10 +32,42 @@ return {
                 live_grep = {
                     theme = "ivy",
                 },
+            },
+            extensions = {
+                bibtex = {
+                    depth = 1,
+                    -- Depth for the *.bib file
+                    global_files = {'~/Library/texmf/bibtex/bib/Zotero.bib'},
+                    -- Path to global bibliographies (placed outside of the project)
+                    search_keys = { 'author', 'year', 'title' },
+                    -- Define the search keys to use in the picker
+                    citation_format = '{{author}} ({{year}}), {{title}}.',
+                    -- Template for the formatted citation
+                    citation_trim_firstname = true,
+                    -- Only use initials for the authors first name
+                    citation_max_auth = 2,
+                    -- Max number of authors to write in the formatted citation
+                    -- following authors will be replaced by "et al."
+                    custom_formats = {
+                        {id = 'citet', cite_maker = '\\citet{%s}'}
+                    },
+                    -- Custom format for citation label
+                    format = 'citet',
+                    -- Format to use for citation label.
+                    -- Try to match the filetype by default, or use 'plain'
+                    context = true,
+                    -- Context awareness disabled by default
+                    context_fallback = true,
+                    -- Fallback to global/directory .bib files if context not found
+                    -- This setting has no effect if context = false
+                    wrap = false,
+                    -- Wrappin
+                },
             }
         })
 
         telescope.load_extension("fzf")
+        telescope.load_extension("bibtex")
     end,
     keys = function()
         local builtin = require("telescope.builtin")

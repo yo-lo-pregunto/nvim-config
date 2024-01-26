@@ -26,9 +26,6 @@ return {
         require("luasnip.loaders.from_vscode").lazy_load()
 
         cmp.setup({
-            completion = {
-                completeopt = "menu,menuone,noinsert",
-            },
             snippet = { -- configure how nvim-cmp interacts with snippet engine
                 expand = function(args)
                     luasnip.lsp_expand(args.body)
@@ -37,7 +34,13 @@ return {
             mapping = cmp.mapping.preset.insert({
                 -- confirm selection
                 ['<CR>'] = cmp.mapping.confirm({ select = false }),
-                ["<C-Space>"] = cmp.mapping.complete(),
+                ["<C-h>"] = cmp.mapping(function(_)
+                    if cmp.visible() then
+                        cmp.abort()
+                    else
+                        cmp.complete()
+                    end
+                end),
 
                 -- navigate items on the list
                 ['<Up>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
@@ -87,6 +90,7 @@ return {
                 { name = "luasnip" }, -- snippets
                 { name = "buffer" }, -- text within current buffer
                 { name = "path" }, -- file system paths
+                { name = "vimtex" }, -- file system paths
                 { name = "spell", keyword_length = 4, option = {
                     keep_all_entries = false,
                     enable_in_contex = function ()
