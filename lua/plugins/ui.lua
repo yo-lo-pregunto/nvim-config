@@ -70,15 +70,15 @@ return {
                 lualine_a = { 'mode' },
                 lualine_b = {'branch', 'diagnostics'},
                 lualine_c = { {'filename', path = 1} },
-                lualine_x = { '%l/%L:%02c' },
-                lualine_y = {},
-                lualine_z = {},
+                lualine_x = { },
+                lualine_y = { { "venv-selector", icon = "", } },
+                lualine_z = { '%l/%L:%02c' },
             },
             inactive_sections = {
                 lualine_c = { {'filename', path =1} },
                 lualine_x = {'location'},
             },
-            extensions = { "neo-tree", "lazy" },
+            extensions = { "neo-tree", "lazy", "toggleterm" },
         },
         config = function (_, opts)
             vim.opt.showmode = false
