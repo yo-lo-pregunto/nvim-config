@@ -6,5 +6,6 @@ return {
     },
     keys = {
         { "<leader>t", "<cmd>ToggleTerm<cr>", desc = "Terminal" },
-    }
+    },
+    cmd = "ToggleTerm",
 }

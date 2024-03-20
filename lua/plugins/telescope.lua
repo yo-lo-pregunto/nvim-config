@@ -69,6 +69,7 @@ return {
         telescope.load_extension("fzf")
         telescope.load_extension("bibtex")
     end,
+    cmd = "Telescope",
     keys = function()
         local builtin = require("telescope.builtin")
         local ivy = require('telescope.themes').get_ivy()

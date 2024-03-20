@@ -3,7 +3,10 @@ return {
     lazy = false,
     priority = 1000,
     dependencies = {
-        "projekt0n/github-nvim-theme"
+        "projekt0n/github-nvim-theme",
+        "jacoborus/tender.vim",
+        "bluz71/vim-moonfly-colors",
+        "EdenEast/nightfox.nvim",
     },
     config = function()
         require("catppuccin").setup({
@@ -12,6 +15,6 @@ return {
             transparent_background = false,
         })
 
-        vim.cmd.colorscheme("catppuccin")
+        vim.cmd.colorscheme("carbonfox")
     end,
 }
