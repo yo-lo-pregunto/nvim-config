@@ -33,8 +33,9 @@ return {
             },
             mapping = cmp.mapping.preset.insert({
                 -- confirm selection
-                ['<CR>'] = cmp.mapping.confirm({ select = false }),
-                ["<C-h>"] = cmp.mapping(function(_)
+                ['<C-j>'] = cmp.mapping.confirm({ select = true}),
+                -- Toggle completion
+                ["<C-i>"] = cmp.mapping(function(_)
                     if cmp.visible() then
                         cmp.abort()
                     else
@@ -42,46 +43,25 @@ return {
                     end
                 end),
 
-                -- navigate items on the list
-                ['<Up>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
-                ['<Down>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
-
                 -- scroll up and down in the completion documentation
                 ['<C-b>'] = cmp.mapping.scroll_docs(-4),
                 ['<C-f>'] = cmp.mapping.scroll_docs(4),
 
-                -- when menu is visible, navigate to next item
-                -- when line is empty, insert a tab character
-                -- else, activate completion
-                ['<Tab>'] = cmp.mapping(function(fallback)
-                    if cmp.visible() then
-                        cmp.select_next_item({ cmp.SelectBehavior.Select })
-                    else
-                        fallback()
-                    end
-                end, {'i', 's'}),
+                -- Select the next or previous item
+                ['<C-n>'] = cmp.mapping.select_next_item(),
+                ['<C-p>'] = cmp.mapping.select_prev_item(),
 
-                -- when menu is visible, navigate to previous item on list
-                -- else, revert to default behavior
-                ['<S-Tab>'] = cmp.mapping(function(fallback)
-                    if cmp.visible() then
-                        cmp.select_prev_item({ cmp.SelectBehavior.Select })
-                    else
-                        fallback()
+                ['<C-l>'] = cmp.mapping(function()
+                    if luasnip.expand_or_locally_jumpable() then
+                        luasnip.expand_or_jump()
                     end
-                end, {'i', 's'}),
-                -- go to next placeholder in the snippet
-                ['<C-n>'] = cmp.mapping(function(_)
-                    if luasnip.jumpable(1) then
-                        luasnip.jump(1)
-                    end
-                end, {'i', 's'}),
-                -- go to previous placeholder in the snippet
-                ['<C-p>'] = cmp.mapping(function(_)
-                    if luasnip.jumpable(-1) then
+                end, { 'i', 's' }),
+                ['<C-h>'] = cmp.mapping(function()
+                    if luasnip.locally_jumpable(-1) then
                         luasnip.jump(-1)
                     end
-                end, {'i', 's'})
+                end, { 'i', 's' }),
+
             }),
             -- sources for autocompletion
             sources = cmp.config.sources({
