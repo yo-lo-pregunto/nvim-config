@@ -22,8 +22,8 @@ return {
             vim.g["cmake_default_config"] = ".nvim"
         end,
         keys = {
-            { "<leader>cg", "<cmd>CMakeGenerate<CR>", { desc = "Generate" } },
-            { "<leader>cq", "<cmd>CMakeClose<CR>", { desc = "Close" } },
+            { "<leader>cg", "<cmd>CMakeGenerate<CR>", desc = "Generate" },
+            { "<leader>cq", "<cmd>CMakeClose<CR>", desc = "Close" },
         },
         ft = { "c", "cpp" },
     }
