@@ -43,6 +43,7 @@
   "tender.vim": { "branch": "master", "commit": "35fcab45f752776c914225c1da6123ee7572998f" },
   "toggleterm.nvim": { "branch": "main", "commit": "193786e0371e3286d3bc9aa0079da1cd41beaa62" },
   "venv-selector.nvim": { "branch": "main", "commit": "2ad34f36d498ff5193ea10f79c87688bd5284172" },
+  "vim-cmake": { "branch": "master", "commit": "709851504096320c10d90d2e7c057ff6efc9a4fc" },
   "vim-fugitive": { "branch": "master", "commit": "41beedabc7e948c787ea5696e04c3544c3674e23" },
   "vim-illuminate": { "branch": "master", "commit": "305bf07b919ac526deb5193280379e2f8b599926" },
   "vim-moonfly-colors": { "branch": "master", "commit": "7f89ca0d2396718078780c802fa18738533a43f1" },

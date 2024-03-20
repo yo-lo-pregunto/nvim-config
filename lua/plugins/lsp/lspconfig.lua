@@ -84,8 +84,8 @@ return {
                 require('lspconfig')[server_name].setup {
                     capabilities = capabilities,
                     on_attach = on_attach,
-                    settings = servers[server_name].settings or {},
-                    filetypes = servers[server_name].filetypes or {},
+                    settings = servers[server_name] and servers[server_name].settings or {},
+                    filetypes = servers[server_name] and servers[server_name].filetypes or {},
                     handlers = handlers,
                 }
             end,

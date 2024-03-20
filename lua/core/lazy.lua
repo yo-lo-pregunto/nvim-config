@@ -11,13 +11,23 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({
-    { import = "plugins" },
-    { import = "plugins.lsp" },
-}, {
-    change_detection = {
-        -- automatically check for config file changes and reload the ui
-        enabled = true,
-        notify = false,     -- get a notification when changes are found
+require("lazy").setup(
+    {
+        { import = "plugins" },
+        { import = "plugins.lsp" },
+    },
+    {
+        change_detection = {
+            -- automatically check for config file changes and reload the ui
+            enabled = true,
+            notify = false,     -- get a notification when changes are found
+        },
+        performance = {
+            rtp = {
+                disabled_plugins = {
+                    "netrwPlugin",
+                },
+            },
+        }
     }
-})
+)
