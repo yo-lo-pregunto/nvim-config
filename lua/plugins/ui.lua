@@ -95,10 +95,23 @@ return {
             large_file_overrides = {
                 providers = { "lsp" },
             },
+            modes_denylist = {
+                "v",
+                "vs",
+                "V",
+                "Vs",
+                "<C-V>",
+                "<C-V>s",
+            }
         },
         config = function(_, opts)
+            vim.api.nvim_set_hl(0, "IlluminatedWordText", { link = "Search" })
+            vim.api.nvim_set_hl(0, "IlluminatedWordRead", { link = "Search" })
+            vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { link = "Search" })
             require("illuminate").configure(opts)
 
         end,
     }
+    },
+    },
 }

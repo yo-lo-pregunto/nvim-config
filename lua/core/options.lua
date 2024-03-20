@@ -44,3 +44,6 @@ opt.backup = false
 opt.pumheight = 7 -- Number of items in pop-up menu
 
 opt.list = true -- Show tabs if any
+
+opt.hlsearch = false
+
