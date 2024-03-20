@@ -2,6 +2,7 @@ return {
     "nvim-neorg/neorg",
     build = ":Neorg sync-parsers",
     dependencies = { "nvim-lua/plenary.nvim" },
+    tag = "v7.0.0",
     config = function()
         require("neorg").setup {
             load = {
@@ -31,6 +32,12 @@ return {
 
                 },
                 ["core.esupports.metagen"] = {},
+                ["core.export"] = {},
+                ["core.export.markdown"] = {
+                    config = {
+                        extensions = "all",
+                    },
+                },
         },
     }
 end,
